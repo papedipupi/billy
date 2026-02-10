@@ -1,42 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <h1>Welcome to the Billy Repository</h1>
-    <button id="openModalBtn">Open Modal</button>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Modal Header</h2>
-            <p>This is a simple modal dialog.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi-Stopwatch</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Multi-Stopwatch</p>
+          <h1>Billy - the Billable Hours Partner</h1>
+          <p class="sub">
+            Run as many stopwatches as you need, rename them, and set the time at any moment—even while running.
+          </p>
         </div>
+        <button class="primary" id="addStopwatch">Add stopwatch</button>
+      </header>
+
+      <section id="stopwatchList" class="grid"></section>
+    </main>
+
+    <div class="modal" id="confirmModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close></div>
+      <div
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="confirmTitle"
+        aria-describedby="confirmDesc"
+      >
+        <p class="modal-title" id="confirmTitle">Confirm action</p>
+        <p class="modal-body" id="confirmDesc"></p>
+        <div class="modal-actions">
+          <button class="modal-btn ghost" type="button" data-cancel>Cancel</button>
+          <button class="modal-btn primary" type="button" data-confirm>Confirm</button>
+        </div>
+      </div>
     </div>
 
-    <script>
-        const modal = document.getElementById('myModal');
-        const btn = document.getElementById('openModalBtn');
-        const span = document.getElementsByClassName('close')[0];
-
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-</body>
+    <script src="./app.js"></script>
+  </body>
 </html>
